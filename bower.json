@@ -1,0 +1,27 @@
+{
+  "name": "sort-keys-recursive",
+  "description": "Sort the keys of an object recursively",
+  "version": "1.0.0",
+  "authors": [
+    "Kiko Beats josefrancisco.verdu@gmail.com"
+  ],
+  "homepage": "https://github.com/Kikobeats/sort-keys-recursive",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "keywords": [
+    "object",
+    "obj",
+    "keys",
+    "key",
+    "sort",
+    "recursive"
+  ],
+  "license": "MIT",
+  "main": "dist/sort-keys-recursive.js",
+  "repository": "Kikobeats/sort-keys-recursive"
+}
