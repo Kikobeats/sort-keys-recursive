@@ -1,7 +1,7 @@
 {
   "name": "sort-keys-recursive",
   "description": "Sort the keys of an object recursively",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "author": {
     "name": "Kiko Beats",
     "email": "josefrancisco.verdu@gmail.com",
