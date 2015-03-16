@@ -19,7 +19,7 @@ src =
 
 module =
   filename : "#{pkg.name}.js"
-  shorcut  : "#{pkg.name}"
+  shortcut  : "#{pkg.name}"
   dist     : 'dist'
 
 banner = [
@@ -36,7 +36,7 @@ gulp.task 'browserify', ->
   browserify
       extensions: ['.coffee', '.js']
     .transform coffeeify
-    .require(src.main, { expose: module.shorcut})
+    .require(src.main, { expose: module.shortcut})
     .ignore('coffee-script')
     .bundle()
   .pipe source module.filename
