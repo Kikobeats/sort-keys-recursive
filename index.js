@@ -1,5 +1,5 @@
 'use strict';
-require('coffee-script').register();
+require('coffee-script/register');
 var SortRecursive = require('./lib/SortRecursive');
 
 module.exports = function (obj, compareFn) {

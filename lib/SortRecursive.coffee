@@ -1,7 +1,7 @@
 'use strict'
 sortKeys = require 'sort-keys'
-module.exports = class SortRecursive
 
+module.exports = class SortRecursive
   @array: (array) ->
     array.sort()
 
@@ -10,7 +10,6 @@ module.exports = class SortRecursive
 
   @object: (object, compareFn) ->
     object = @objectKeys object, compareFn
-
     for key, keyValue of object
       if (typeof keyValue is 'object')
         unless keyValue instanceof Array

@@ -1,11 +1,14 @@
 {
   "name": "sort-keys-recursive",
   "description": "Sort the keys of an object recursively",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": {
     "name": "Kiko Beats",
     "email": "josefrancisco.verdu@gmail.com",
     "url": "https://github.com/Kikobeats"
+  },
+  "bugs": {
+    "url": "https://github.com/Kikobeats/sort-keys-recursive/issues"
   },
   "dependencies": {
     "sort-keys": "*"
@@ -20,6 +23,7 @@
     "gulp-util": "*",
     "mocha": "*",
     "should": "*",
+    "vinyl-buffer": "*",
     "vinyl-source-stream": "*"
   },
   "engines": {
@@ -27,12 +31,12 @@
   },
   "homepage": "https://github.com/Kikobeats/sort-keys-recursive",
   "keywords": [
-    "object",
-    "obj",
-    "keys",
     "key",
-    "sort",
-    "recursive"
+    "keys",
+    "obj",
+    "object",
+    "recursive",
+    "sort"
   ],
   "license": "MIT",
   "main": "./index.js",
