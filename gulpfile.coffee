@@ -33,8 +33,6 @@ banner = [
 # -- Tasks ---------------------------------------------------------------------
 
 gulp.task 'browserify', ->
-
-gulp.task 'browserify', ->
   browserify
       extensions: ['.coffee', '.js']
     .transform coffeeify
