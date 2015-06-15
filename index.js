@@ -4,7 +4,7 @@ var typeOf = require('fn-typeof');
 var sort = require('./lib/SortRecursive');
 
 module.exports = function(something, compareFn) {
-  if (typeOf(something) === 'array') return sort.array(something, compareFn);
-  if (typeOf(something) === 'object') return sort.object(something, compareFn);
+  var type = typeOf(something);
+  if (sort[type]) return sort[type](something, compareFn);
   return something;
 };
