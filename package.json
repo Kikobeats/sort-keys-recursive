@@ -22,8 +22,9 @@
     "sort"
   ],
   "dependencies": {
+    "ava": "^0.15.2",
     "fn-typeof": "*",
-    "sort-keys": "*"
+    "sort-keys": "^1.1.2"
   },
   "devDependencies": {
     "browserify": "*",
@@ -42,7 +43,7 @@
     "node": "*"
   },
   "scripts": {
-    "test": "sh test/test.sh"
+    "test": "ava"
   },
   "license": "MIT"
 }
