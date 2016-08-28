@@ -21,15 +21,14 @@
     "recursive",
     "sort"
   ],
-  "dependencies": {
-    "ava": "^0.15.2",
-    "fn-typeof": "*",
-    "sort-keys": "^1.1.2"
-  },
   "devDependencies": {
-    "babel-preset-es2015": "^6.9.0",
+    "ava": "^0.15.2",
+    "babel-cli": "^6.14.0",
+    "babel-preset-es2015": "^6.14.0",
     "mocha": "*",
     "should": "*",
+    "sort-keys": "^1.1.2",
+    "uglify-js": "^1.3.5",
     "vinyl-buffer": "*",
     "vinyl-source-stream": "*"
   },
@@ -38,7 +37,7 @@
   },
   "scripts": {
     "test": "ava",
-    "build": "babel src -d lib"
+    "build": "babel lib -d dist"
   },
   "license": "MIT"
 }
