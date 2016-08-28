@@ -1,6 +1,6 @@
 'use strict'
 
-const recursive = require('../lib/SortRecursive')
+const recursive = require('../dist/SortRecursive')
 const test = require('ava');
 
 test('sort array', (t) => {
