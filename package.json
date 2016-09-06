@@ -21,20 +21,14 @@
     "recursive",
     "sort"
   ],
-  "dependencies": {
-    "fn-typeof": "*",
-    "sort-keys": "*"
-  },
   "devDependencies": {
-    "browserify": "*",
-    "coffee-script": "*",
-    "coffeeify": "*",
-    "gulp": "*",
-    "gulp-header": "*",
-    "gulp-uglify": "*",
-    "gulp-util": "*",
+    "ava": "^0.15.2",
+    "babel-cli": "^6.14.0",
+    "babel-preset-es2015": "^6.14.0",
     "mocha": "*",
     "should": "*",
+    "sort-keys": "^1.1.2",
+    "uglify-js": "^1.3.5",
     "vinyl-buffer": "*",
     "vinyl-source-stream": "*"
   },
@@ -42,7 +36,8 @@
     "node": "*"
   },
   "scripts": {
-    "test": "sh test/test.sh"
+    "test": "ava",
+    "build": "babel lib -d dist"
   },
   "license": "MIT"
 }
