@@ -1,3 +1,10 @@
+<a name="1.2.1"></a>
+## 1.2.1 (2017-01-06)
+
+* Tweaks ([672b271](https://github.com/kikobeats/sort-keys-recursive/commit/672b271))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2017-01-06)
 
