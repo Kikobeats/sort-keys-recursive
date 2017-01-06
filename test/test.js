@@ -1,47 +1,47 @@
 'use strict'
 
-const recursive = require('../dist/SortRecursive')
-const test = require('ava');
+var sort = require('..')
+var test = require('ava')
 
 test('sort array', (t) => {
   t.deepEqual(
-    recursive.array(['foo', 'bar']),
+    sort(['foo', 'bar']),
     ['bar', 'foo']
   )
 })
 
 test('sort object kyes', (t) => {
   t.deepEqual(
-    recursive.objectKeys({hello: 'world', foo: 'bar'}),
+    sort({hello: 'world', foo: 'bar'}),
     {foo: 'bar', hello: 'world'}
   )
 })
 
 test('sort keys nested ', (t) => {
-  const object = {
+  var object = {
     c: 0,
     a: {
       c: 0,
       a: 0,
-      b: 0,
+      b: 0
     },
     b: 0
   }
 
-  const sorted = {
+  var sorted = {
     a: {
       a: 0,
       b: 0,
-      c: 0,
+      c: 0
     },
     b: 0,
     c: 0
   }
-  t.deepEqual(recursive.object(object), sorted)
-});
+  t.deepEqual(sort(object), sorted)
+})
 
 test('sort object', (t) => {
-  const object = {
+  var object = {
     c: 0,
     a: {
       c: ['c', 'a', 'b'],
@@ -51,8 +51,8 @@ test('sort object', (t) => {
     b: 0
   }
 
-  const sorted = {
-    a:  {
+  var sorted = {
+    a: {
       a: 0,
       b: 0,
       c: ['a', 'b', 'c']
@@ -60,5 +60,5 @@ test('sort object', (t) => {
     b: 0,
     c: 0
   }
-  t.deepEqual(recursive.object(object), sorted)
-});
+  t.deepEqual(sort(object), sorted)
+})

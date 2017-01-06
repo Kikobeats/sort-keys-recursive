@@ -1,10 +1,12 @@
 # sort-keys-recursive
 
-[![Build Status](http://img.shields.io/travis/Kikobeats/sort-keys-recursive/master.svg?style=flat)](https://travis-ci.org/Kikobeats/sort-keys-recursive)
-[![Dependency status](http://img.shields.io/david/Kikobeats/sort-keys-recursive.svg?style=flat)](https://david-dm.org/Kikobeats/sort-keys-recursive)
-[![Dev Dependencies Status](http://img.shields.io/david/dev/Kikobeats/sort-keys-recursive.svg?style=flat)](https://david-dm.org/Kikobeats/sort-keys-recursive#info=devDependencies)
-[![NPM Status](http://img.shields.io/npm/dm/sort-keys-recursive.svg?style=flat)](https://www.npmjs.org/package/sort-keys-recursive)
-[![Gittip](http://img.shields.io/gittip/Kikobeats.svg?style=flat)](https://www.gittip.com/Kikobeats/)
+![Last version](https://img.shields.io/github/tag/Kikobeats/sort-keys-recursive.svg?style=flat-square)
+[![Build Status](https://img.shields.io/travis/Kikobeats/sort-keys-recursive/master.svg?style=flat-square)](https://travis-ci.org/Kikobeats/sort-keys-recursive)
+[![Coverage Status](https://img.shields.io/coveralls/Kikobeats/sort-keys-recursive.svg?style=flat-square)](https://coveralls.io/github/Kikobeats/sort-keys-recursive)
+[![Dependency status](https://img.shields.io/david/Kikobeats/sort-keys-recursive.svg?style=flat-square)](https://david-dm.org/Kikobeats/sort-keys-recursive)
+[![Dev Dependencies Status](https://img.shields.io/david/dev/Kikobeats/sort-keys-recursive.svg?style=flat-square)](https://david-dm.org/Kikobeats/sort-keys-recursive#info=devDependencies)
+[![NPM Status](https://img.shields.io/npm/dm/str-match.svg?style=flat-square)](https://www.npmjs.org/package/str-match)
+[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://paypal.me/Kikobeats)
 
 > Sort the keys of an object recursively
 
@@ -19,17 +21,10 @@ If you want to use in the browser (powered by [Browserify](http://browserify.org
 ```bash
 bower install sort-keys-recursive --save
 ```
-
-and later link in your HTML:
-
-```html
-<script src="bower_components/sort-keys-recursive/dist/sort-keys-recursive.js"></script>
-```
-
 ## Usage
 
 ```js
-recursive = require('sort-keys-recursive');
+var sort = require('sort-keys-recursive')
 
 var object = {
   c: 0,
@@ -39,9 +34,11 @@ var object = {
     b: 0
   },
   b: 0
-};
+}
 
-console.log(recursive(object));
+var output = sort(object)
+
+console.log(output)
 
 // {
 //   a: {
@@ -58,5 +55,3 @@ console.log(recursive(object));
 ## License
 
 MIT © [Kiko Beats](http://www.kikobeats.com)
-
-

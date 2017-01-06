@@ -14,30 +14,37 @@
     "url": "https://github.com/Kikobeats/sort-keys-recursive/issues"
   },
   "keywords": [
-    "key",
+    "sort",
+    "object",
     "keys",
     "obj",
-    "object",
+    "key",
+    "stable",
+    "deterministic",
+    "deep",
     "recursive",
-    "sort"
+    "recursively",
+    "array"
   ],
+  "dependencies": {
+    "kind-of": "~3.1.0",
+    "sort-keys": "~1.1.2"
+  },
   "devDependencies": {
-    "ava": "^0.15.2",
-    "babel-cli": "^6.14.0",
-    "babel-preset-es2015": "^6.14.0",
-    "mocha": "*",
-    "should": "*",
-    "sort-keys": "^1.1.2",
-    "uglify-js": "^1.3.5",
-    "vinyl-buffer": "*",
-    "vinyl-source-stream": "*"
+    "ava": "latest",
+    "coveralls": "latest",
+    "nyc": "latest",
+    "standard": "latest",
+    "standard-markdown": "latest"
   },
   "engines": {
-    "node": "*"
+    "node": ">=0.12"
   },
   "scripts": {
-    "test": "ava",
-    "build": "babel lib -d dist"
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "lint": "standard-markdown && standard",
+    "pretest": "npm run lint",
+    "test": "nyc ava"
   },
   "license": "MIT"
 }

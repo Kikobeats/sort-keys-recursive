@@ -1,10 +1,44 @@
-'use strict';
-require('coffee-script/register');
-var typeOf = require('fn-typeof');
-var sort = require('./lib/SortRecursive');
+'use strict'
 
-module.exports = function(something, compareFn) {
-  var type = typeOf(something);
-  if (sort[type]) return sort[type](something, compareFn);
-  return something;
-};
+var sortKeys = require('sort-keys')
+var kindOf = require('kind-of')
+
+function sortObjectKeys (obj, compare) {
+  return sortKeys(obj, compare)
+}
+
+function sortArray (arr, compare) {
+  return arr.sort(compare)
+}
+
+function sortObject (obj, compare) {
+  var result = sortObjectKeys(obj, compare)
+
+  Object.keys(obj).forEach(function (key) {
+    var current = result[key]
+    var type = kindOf(current)
+
+    if (type === 'object') {
+      result[key] = sortObject(current, compare)
+      return
+    }
+
+    if (type === 'array') {
+      sortArray(current)
+      return
+    }
+  })
+
+  return result
+}
+
+function sort (something, compareFn) {
+  var type = kindOf(something)
+  if (sort[type]) return sort[type](something, compareFn)
+  return something
+}
+
+sort.array = sortArray
+sort.object = sortObject
+
+module.exports = sort
