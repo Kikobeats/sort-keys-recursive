@@ -8,7 +8,7 @@ function sortObjectKeys (obj, compare) {
 }
 
 function sortArray (arr, compare) {
-  return arr.sort(compare)
+  return arr.slice().sort(compare)
 }
 
 function sortObject (obj, compare) {
@@ -24,7 +24,7 @@ function sortObject (obj, compare) {
     }
 
     if (type === 'array') {
-      sortArray(current)
+      result[key] = sortArray(current)
       return
     }
   })

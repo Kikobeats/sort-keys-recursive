@@ -4,9 +4,15 @@ var sort = require('..')
 var test = require('ava')
 
 test('sort array', (t) => {
+  var arr = ['foo', 'bar']
   t.deepEqual(
-    sort(['foo', 'bar']),
+    sort(arr),
     ['bar', 'foo']
+  )
+
+  t.deepEqual(
+    arr,
+    ['foo', 'bar']
   )
 })
 

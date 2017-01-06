@@ -9,22 +9,25 @@
     "name": "Kiko Beats",
     "url": "https://github.com/Kikobeats"
   },
-  "repository": "Kikobeats/sort-keys-recursive",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kikobeats/sort-keys-recursive.git"
+  },
   "bugs": {
     "url": "https://github.com/Kikobeats/sort-keys-recursive/issues"
   },
   "keywords": [
-    "sort",
-    "object",
+    "array",
+    "deep",
+    "deterministic",
+    "key",
     "keys",
     "obj",
-    "key",
-    "stable",
-    "deterministic",
-    "deep",
+    "object",
     "recursive",
     "recursively",
-    "array"
+    "sort",
+    "stable"
   ],
   "dependencies": {
     "kind-of": "~3.1.0",
@@ -38,7 +41,7 @@
     "standard-markdown": "latest"
   },
   "engines": {
-    "node": ">=0.12"
+    "node": ">=4"
   },
   "scripts": {
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
