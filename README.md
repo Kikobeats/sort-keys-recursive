@@ -16,11 +16,6 @@
 npm install sort-keys-recursive --save
 ```
 
-If you want to use in the browser (powered by [Browserify](http://browserify.org/)):
-
-```bash
-bower install sort-keys-recursive --save
-```
 ## Usage
 
 ```js
