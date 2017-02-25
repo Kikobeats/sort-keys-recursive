@@ -3,7 +3,13 @@
 var sortKeys = require('sort-keys')
 var kindOf = require('kind-of')
 
-function sortObjectKeys (obj, compare) {
+function inArray (value, arr) {
+  if (!arr || kindOf(arr) !== 'array') return false
+
+  return arr.indexOf(value) > -1
+}
+
+function sortObjectKeys (obj, compare, options) {
   return sortKeys(obj, compare)
 }
 
@@ -11,7 +17,7 @@ function sortArray (arr, compare) {
   return arr.slice().sort(compare)
 }
 
-function sortObject (obj, compare) {
+function sortObject (obj, compare, options) {
   var result = sortObjectKeys(obj, compare)
 
   Object.keys(obj).forEach(function (key) {
@@ -19,12 +25,16 @@ function sortObject (obj, compare) {
     var type = kindOf(current)
 
     if (type === 'object') {
-      result[key] = sortObject(current, compare)
+      if (!options || !inArray(key, options.ignoreObjectAtKeys)) {
+        result[key] = sortObject(current, compare, options)
+      }
       return
     }
 
     if (type === 'array') {
-      result[key] = sortArray(current)
+      if (!options || !inArray(key, options.ignoreArrayAtKeys)) {
+        result[key] = sortArray(current, compare, options)
+      }
       return
     }
   })
@@ -32,9 +42,10 @@ function sortObject (obj, compare) {
   return result
 }
 
-function sort (something, compareFn) {
+function sort (something, compareFn, opts) {
   var type = kindOf(something)
-  if (sort[type]) return sort[type](something, compareFn)
+
+  if (sort[type]) return sort[type](something, compareFn, opts)
   return something
 }
 

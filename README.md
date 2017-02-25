@@ -84,6 +84,48 @@ console.log(output)
 
 ```
 
+### Options
+
+You can pass an options object as the third argument, the supported options are the following:
+
+```js
+var options = {
+  ignoreArrayAtKeys: [ // Don't sort the Array at the specified keys, if any.
+    'b'
+  ],
+  ignoreObjectAtKeys: [ // Don't sort the Object at the specified keys, if any.
+    'a'
+  ]
+}
+
+var input = {
+  a: { // This Object will not be sorted.
+    a: 'a',
+    b: 'b',
+    c: 'c',
+    d: ['a', 'c', 'b']
+  },
+  b: ['a', 'c', 'b'], // This Array will not be sorted.
+  d: ['a', 'c', 'b']
+}
+
+var output = sort(object, null, options)
+
+console.log(output)
+
+// {
+//   a: {
+//     a: 'a',
+//     b: 'b',
+//     c: 'c',
+//     d: ['a', 'c', 'b']
+//   },
+//   b: ['a', 'c', 'b'],
+//   d: ['a', 'b', 'c']
+// }
+
+```
+
 ## License
 
 MIT © [Kiko Beats](http://www.kikobeats.com)

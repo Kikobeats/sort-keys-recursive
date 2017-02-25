@@ -107,3 +107,73 @@ test('sort object > compareFn', (t) => {
   t.deepEqual(Object.keys(result), Object.keys(expectedResult))
   t.deepEqual(Object.keys(result.a), Object.keys(expectedResult.a))
 })
+
+test('sort object > options.ignoreObjectAtKeys', (t) => {
+  const input = {
+    a: {
+      b: ['a', 'c', 'b'],
+      c: {
+        d: [true, {f: 'g'}]
+      },
+      d: 'e'
+    }
+  }
+
+  const options = {
+    ignoreObjectAtKeys: [
+      'c'
+    ]
+  }
+
+  const result = sort(input, null, options)
+
+  const expectedResult = {
+    a: {
+      b: ['a', 'b', 'c'],
+      c: {
+        d: [true, {f: 'g'}]
+      },
+      d: 'e'
+    }
+  }
+
+  t.deepEqual(result, expectedResult)
+
+  // Check the ordering of the keys.
+  t.deepEqual(Object.keys(result.a), Object.keys(expectedResult.a))
+})
+
+test('sort object > options.ignoreArrayAtKeys', (t) => {
+  const input = {
+    a: {
+      c: {
+        d: [true, {f: 'g'}]
+      },
+      b: ['a', 'c', 'b'],
+      d: 'e'
+    }
+  }
+
+  const options = {
+    ignoreArrayAtKeys: [
+      'b'
+    ]
+  }
+
+  const result = sort(input, null, options)
+
+  const expectedResult = {
+    a: {
+      b: ['a', 'c', 'b'],
+      c: {
+        d: [{f: 'g'}, true]
+      },
+      d: 'e'
+    }
+  }
+
+  t.deepEqual(result, expectedResult)
+
+  // Check the ordering of the keys.
+  t.deepEqual(Object.keys(result.a), Object.keys(expectedResult.a))
+})
