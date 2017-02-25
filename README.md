@@ -47,6 +47,43 @@ console.log(output)
 
 ```
 
+## Optional parameters
+
+### Custom sort function
+
+You can pass a custom sort function as the second argument. This function is passed to the Javascript <code>sort</code> function, that sorts in alphabetical order by default. The custom function should return zero, a negative or positive value:
+
+```js
+var reverseAlphabeticalSort = function (a, b) {
+  return a < b
+}
+
+var object = {
+  a: {
+    a: 0,
+    c: ['c', 'a', 'b'],
+    b: 0
+  },
+  c: 0,
+  b: 0
+}
+
+var output = sort(object, reverseAlphabeticalSort)
+
+console.log(output)
+
+// {
+//   c: 0,
+//   b: 0,
+//   a: {
+//     c: ['c', 'b', 'a'],
+//     b: 0,
+//     a: 0
+//   }
+// }
+
+```
+
 ## License
 
 MIT © [Kiko Beats](http://www.kikobeats.com)
