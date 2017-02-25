@@ -3,6 +3,14 @@
 var sort = require('..')
 var test = require('ava')
 
+test('sort returns non-array/non-object as is', (t) => {
+  const nonSortables = ['foo', null, 34]
+
+  nonSortables.forEach(
+    (nonSortable) => t.deepEqual(sort(nonSortable), nonSortable)
+  )
+})
+
 test('sort array', (t) => {
   var arr = ['foo', 'bar']
   t.deepEqual(
