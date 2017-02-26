@@ -1,3 +1,14 @@
+<a name="2.0.0"></a>
+# 2.0.0 (2017-02-26)
+
+* test/docs: add test and docs for the custom sort function parameter ([6c570dd](https://github.com/kikobeats/sort-keys-recursive/commit/6c570dd))
+* Update docs ([5b64158](https://github.com/kikobeats/sort-keys-recursive/commit/5b64158))
+* refactor: move 'compareFunction' parameter to 'options' ([a4145da](https://github.com/kikobeats/sort-keys-recursive/commit/a4145da))
+* feat: add 'options' support with a new third, optional parameter ([c9a1995](https://github.com/kikobeats/sort-keys-recursive/commit/c9a1995))
+* test: add non-array/non-object test ([a98894c](https://github.com/kikobeats/sort-keys-recursive/commit/a98894c))
+
+
+
 <a name="1.2.1"></a>
 ## 1.2.1 (2017-01-06)
 
