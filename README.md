@@ -47,6 +47,106 @@ console.log(output)
 
 ```
 
+## Options
+
+You can pass an options object as the second argument, the supported options are the following:
+
+```js
+var options = {
+  ignoreArrayAtKeys: [ // Don't sort the Array at the specified keys, if any.
+    'b'
+  ],
+  ignoreObjectAtKeys: [ // Don't sort the Object at the specified keys, if any.
+    'a'
+  ],
+  // Custom sort function, passed to the Javascript sort() function.
+  // If omitted, elements are sorted alphabetically.
+  compareFunction: function (a, b) {
+    return a < b
+  }
+}
+```
+
+#### Example: <code>ignoreArrayAtKeys</code> and <code>ignoreObjectAtKeys</code>
+
+```js
+
+var options = {
+  ignoreArrayAtKeys: [ // Don't sort the Array at the specified keys, if any.
+    'b'
+  ],
+  ignoreObjectAtKeys: [ // Don't sort the Object at the specified keys, if any.
+    'a'
+  ]
+}
+
+var input = {
+  a: { // This Object will not be sorted.
+    a: 'a',
+    b: 'b',
+    c: 'c',
+    d: ['a', 'c', 'b']
+  },
+  b: ['a', 'c', 'b'], // This Array will not be sorted.
+  d: ['a', 'c', 'b']
+}
+
+var output = sort(object, options)
+
+console.log(output)
+
+// {
+//   a: {
+//     a: 'a',
+//     b: 'b',
+//     c: 'c',
+//     d: ['a', 'c', 'b']
+//   },
+//   b: ['a', 'c', 'b'],
+//   d: ['a', 'b', 'c']
+// }
+
+```
+
+#### Example: <code>compareFunction</code>
+
+You can pass a custom sort function as <code>compareFunction</code>. This function is passed to Javascript <code>[sort()](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)</code>, that sorts in alphabetical order by default. The custom function should return zero, a negative or positive value:
+
+```js
+var reverseAlphabeticalSort = function (a, b) {
+  return a < b
+}
+
+var options = {
+  compareFunction: reverseAlphabeticalSort
+}
+
+var object = {
+  a: {
+    a: 0,
+    c: ['c', 'a', 'b'],
+    b: 0
+  },
+  c: 0,
+  b: 0
+}
+
+var output = sort(object, options)
+
+console.log(output)
+
+// {
+//   c: 0,
+//   b: 0,
+//   a: {
+//     c: ['c', 'b', 'a'],
+//     b: 0,
+//     a: 0
+//   }
+// }
+
+```
+
 ## License
 
 MIT © [Kiko Beats](http://www.kikobeats.com)
