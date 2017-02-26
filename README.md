@@ -47,48 +47,30 @@ console.log(output)
 
 ```
 
-## Optional parameters
+## Options
 
-### Custom sort function
-
-You can pass a custom sort function as the second argument. This function is passed to the Javascript <code>sort</code> function, that sorts in alphabetical order by default. The custom function should return zero, a negative or positive value:
+You can pass an options object as the second argument, the supported options are the following:
 
 ```js
-var reverseAlphabeticalSort = function (a, b) {
-  return a < b
+var options = {
+  ignoreArrayAtKeys: [ // Don't sort the Array at the specified keys, if any.
+    'b'
+  ],
+  ignoreObjectAtKeys: [ // Don't sort the Object at the specified keys, if any.
+    'a'
+  ],
+  // Custom sort function, passed to the Javascript sort() function.
+  // If omitted, elements are sorted alphabetically.
+  compareFunction: function (a, b) {
+    return a < b
+  }
 }
-
-var object = {
-  a: {
-    a: 0,
-    c: ['c', 'a', 'b'],
-    b: 0
-  },
-  c: 0,
-  b: 0
-}
-
-var output = sort(object, reverseAlphabeticalSort)
-
-console.log(output)
-
-// {
-//   c: 0,
-//   b: 0,
-//   a: {
-//     c: ['c', 'b', 'a'],
-//     b: 0,
-//     a: 0
-//   }
-// }
-
 ```
 
-### Options
-
-You can pass an options object as the third argument, the supported options are the following:
+#### Example: <code>ignoreArrayAtKeys</code> and <code>ignoreObjectAtKeys</code>
 
 ```js
+
 var options = {
   ignoreArrayAtKeys: [ // Don't sort the Array at the specified keys, if any.
     'b'
@@ -109,7 +91,7 @@ var input = {
   d: ['a', 'c', 'b']
 }
 
-var output = sort(object, null, options)
+var output = sort(object, options)
 
 console.log(output)
 
@@ -122,6 +104,45 @@ console.log(output)
 //   },
 //   b: ['a', 'c', 'b'],
 //   d: ['a', 'b', 'c']
+// }
+
+```
+
+#### Example: <code>compareFunction</code>
+
+You can pass a custom sort function as <code>compareFunction</code>. This function is passed to Javascript <code>[sort()](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)</code>, that sorts in alphabetical order by default. The custom function should return zero, a negative or positive value:
+
+```js
+var reverseAlphabeticalSort = function (a, b) {
+  return a < b
+}
+
+var options = {
+  compareFunction: reverseAlphabeticalSort
+}
+
+var object = {
+  a: {
+    a: 0,
+    c: ['c', 'a', 'b'],
+    b: 0
+  },
+  c: 0,
+  b: 0
+}
+
+var output = sort(object, options)
+
+console.log(output)
+
+// {
+//   c: 0,
+//   b: 0,
+//   a: {
+//     c: ['c', 'b', 'a'],
+//     b: 0,
+//     a: 0
+//   }
 // }
 
 ```

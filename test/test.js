@@ -77,7 +77,7 @@ test('sort object', (t) => {
   t.deepEqual(sort(object), sorted)
 })
 
-test('sort object > compareFn', (t) => {
+test('sort object > options.compareFunction', (t) => {
   const input = {
     a: {
       a: 0,
@@ -98,8 +98,12 @@ test('sort object > compareFn', (t) => {
     }
   }
 
+  const options = {
+    compareFunction: (a, b) => a < b
+  }
+
   // Sort in reverse alphabetical order (instead of the default alphabetical order).
-  const result = sort(input, (a, b) => a < b)
+  const result = sort(input, options)
 
   t.deepEqual(result, expectedResult)
 
@@ -125,7 +129,7 @@ test('sort object > options.ignoreObjectAtKeys', (t) => {
     ]
   }
 
-  const result = sort(input, null, options)
+  const result = sort(input, options)
 
   const expectedResult = {
     a: {
@@ -160,7 +164,7 @@ test('sort object > options.ignoreArrayAtKeys', (t) => {
     ]
   }
 
-  const result = sort(input, null, options)
+  const result = sort(input, options)
 
   const expectedResult = {
     a: {

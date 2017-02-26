@@ -9,16 +9,19 @@ function inArray (value, arr) {
   return arr.indexOf(value) > -1
 }
 
-function sortObjectKeys (obj, compare, options) {
+function sortObjectKeys (obj, compare) {
   return sortKeys(obj, compare)
 }
 
-function sortArray (arr, compare) {
-  return arr.slice().sort(compare)
+function sortArray (arr, options) {
+  const compareFunction = options && options.compareFunction
+
+  return arr.slice().sort(compareFunction)
 }
 
-function sortObject (obj, compare, options) {
-  var result = sortObjectKeys(obj, compare)
+function sortObject (obj, options) {
+  const compareFunction = options && options.compareFunction
+  var result = sortObjectKeys(obj, compareFunction)
 
   Object.keys(obj).forEach(function (key) {
     var current = result[key]
@@ -26,14 +29,14 @@ function sortObject (obj, compare, options) {
 
     if (type === 'object') {
       if (!options || !inArray(key, options.ignoreObjectAtKeys)) {
-        result[key] = sortObject(current, compare, options)
+        result[key] = sortObject(current, options)
       }
       return
     }
 
     if (type === 'array') {
       if (!options || !inArray(key, options.ignoreArrayAtKeys)) {
-        result[key] = sortArray(current, compare, options)
+        result[key] = sortArray(current, options)
       }
       return
     }
@@ -42,10 +45,10 @@ function sortObject (obj, compare, options) {
   return result
 }
 
-function sort (something, compareFn, opts) {
+function sort (something, opts) {
   var type = kindOf(something)
 
-  if (sort[type]) return sort[type](something, compareFn, opts)
+  if (sort[type]) return sort[type](something, opts)
   return something
 }
 
