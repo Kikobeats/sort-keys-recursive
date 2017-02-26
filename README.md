@@ -8,7 +8,7 @@
 [![NPM Status](https://img.shields.io/npm/dm/str-match.svg?style=flat-square)](https://www.npmjs.org/package/str-match)
 [![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://paypal.me/Kikobeats)
 
-> Sort the keys of an object recursively
+> Sort the keys of an object recursively.
 
 ## Install
 
@@ -19,9 +19,9 @@ npm install sort-keys-recursive --save
 ## Usage
 
 ```js
-var sort = require('sort-keys-recursive')
+const sortKeysRecursive = require('sort-keys-recursive')
 
-var object = {
+const object = {
   c: 0,
   a: {
     c: ['c', 'a', 'b'],
@@ -31,7 +31,7 @@ var object = {
   b: 0
 }
 
-var output = sort(object)
+const output = sortKeysRecursive(object)
 
 console.log(output)
 
@@ -47,31 +47,44 @@ console.log(output)
 
 ```
 
-## Options
+## API
 
-You can pass an options object as the second argument, the supported options are the following:
+### sortKeysRecursive(input, [options])
+
+#### input
+
+*Required*<br>
+Type: `array`|`object`
+
+The collection to be sorted.
+
+#### options
+
+##### compareFunction
+
+Type: `function`
+
+[Compare function](https://github.com/sindresorhus/sort-keys#compare).
+
+##### ignoreArrayAtKeys
+
+Type: `array`
+
+Don't sort the Array at the specified keys, if any.
+
+##### ignoreObjectAtKeys
+
+Type: `array`
+
+Don't sort the Object at the specified keys, if any.
+
+## Examples 
+
+### <code>ignoreArrayAtKeys</code> and <code>ignoreObjectAtKeys</code>
 
 ```js
-var options = {
-  ignoreArrayAtKeys: [ // Don't sort the Array at the specified keys, if any.
-    'b'
-  ],
-  ignoreObjectAtKeys: [ // Don't sort the Object at the specified keys, if any.
-    'a'
-  ],
-  // Custom sort function, passed to the Javascript sort() function.
-  // If omitted, elements are sorted alphabetically.
-  compareFunction: function (a, b) {
-    return a < b
-  }
-}
-```
 
-#### Example: <code>ignoreArrayAtKeys</code> and <code>ignoreObjectAtKeys</code>
-
-```js
-
-var options = {
+const options = {
   ignoreArrayAtKeys: [ // Don't sort the Array at the specified keys, if any.
     'b'
   ],
@@ -80,7 +93,7 @@ var options = {
   ]
 }
 
-var input = {
+const input = {
   a: { // This Object will not be sorted.
     a: 'a',
     b: 'b',
@@ -91,7 +104,7 @@ var input = {
   d: ['a', 'c', 'b']
 }
 
-var output = sort(object, options)
+const output = sort(object, options)
 
 console.log(output)
 
@@ -108,7 +121,7 @@ console.log(output)
 
 ```
 
-#### Example: <code>compareFunction</code>
+### <code>compareFunction</code>
 
 You can pass a custom sort function as <code>compareFunction</code>. This function is passed to Javascript <code>[sort()](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)</code>, that sorts in alphabetical order by default. The custom function should return zero, a negative or positive value:
 
