@@ -78,7 +78,7 @@ Type: `array`
 
 Don't sort the Object at the specified keys, if any.
 
-## Examples 
+## Examples
 
 ### <code>ignoreArrayAtKeys</code> and <code>ignoreObjectAtKeys</code>
 
@@ -123,7 +123,7 @@ console.log(output)
 
 ### <code>compareFunction</code>
 
-You can pass a custom sort function as <code>compareFunction</code>. This function is passed to Javascript <code>[sort()](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)</code>, that sorts in alphabetical order by default. The custom function should return zero, a negative or positive value:
+You can pass a custom sort function as <code>compareFunction</code>. This function is passed to Javascript <code>[sort()](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)</code>, that sorts in alphabetical order by default (it sorts elements by converting them to strings and comparing strings in Unicode code point order). The custom function should return zero, a negative or positive value:
 
 ```js
 var reverseAlphabeticalSort = function (a, b) {
