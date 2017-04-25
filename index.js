@@ -38,7 +38,6 @@ function sortObject (obj, options) {
       if (!options || !inArray(key, options.ignoreArrayAtKeys)) {
         result[key] = sortArray(current, options)
       }
-      return
     }
   })
 
