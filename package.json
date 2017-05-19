@@ -30,7 +30,7 @@
     "stable"
   ],
   "dependencies": {
-    "kind-of": "~3.2.2",
+    "kind-of": "~4.0.0",
     "sort-keys": "~1.1.2"
   },
   "devDependencies": {
