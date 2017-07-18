@@ -1,3 +1,19 @@
+<a name="2.0.1"></a>
+## 2.0.1 (2017-07-18)
+
+* Fix interface ([883ae34](https://github.com/kikobeats/sort-keys-recursive/commit/883ae34))
+* Fix linter ([81b0cd3](https://github.com/kikobeats/sort-keys-recursive/commit/81b0cd3))
+* Fix linter ([1792395](https://github.com/kikobeats/sort-keys-recursive/commit/1792395))
+* Little Refactor ([0a40c2c](https://github.com/kikobeats/sort-keys-recursive/commit/0a40c2c))
+* Update README.md ([f986868](https://github.com/kikobeats/sort-keys-recursive/commit/f986868))
+* Update travis builds ([0a949fe](https://github.com/kikobeats/sort-keys-recursive/commit/0a949fe))
+* docs(readme): add Greenkeeper badge ([14b62b8](https://github.com/kikobeats/sort-keys-recursive/commit/14b62b8))
+* chore(package): update dependencies ([2dcdb49](https://github.com/kikobeats/sort-keys-recursive/commit/2dcdb49))
+* chore(package): update kind-of to version 3.2.2 ([39b9d7f](https://github.com/kikobeats/sort-keys-recursive/commit/39b9d7f))
+* chore(package): update kind-of to version 4.0.0 ([4cedab2](https://github.com/kikobeats/sort-keys-recursive/commit/4cedab2))
+
+
+
 <a name="2.0.0"></a>
 # 2.0.0 (2017-02-26)
 
