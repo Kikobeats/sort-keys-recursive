@@ -44,7 +44,6 @@ console.log(output)
 //   b: 0,
 //   c: 0
 // };
-
 ```
 
 ## API
@@ -118,7 +117,6 @@ console.log(output)
 //   b: ['a', 'c', 'b'],
 //   d: ['a', 'b', 'c']
 // }
-
 ```
 
 ### <code>compareFunction</code>
@@ -157,7 +155,6 @@ console.log(output)
 //     a: 0
 //   }
 // }
-
 ```
 
 ## License
