@@ -24,7 +24,7 @@ test('sort array', (t) => {
   )
 })
 
-test('sort object kyes', (t) => {
+test('sort object keys', (t) => {
   t.deepEqual(
     sort({hello: 'world', foo: 'bar'}),
     {foo: 'bar', hello: 'world'}

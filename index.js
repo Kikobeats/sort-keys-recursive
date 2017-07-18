@@ -1,42 +1,39 @@
 'use strict'
 
-var sortKeys = require('sort-keys')
-var kindOf = require('kind-of')
+const sortKeys = require('sort-keys')
+const kindOf = require('kind-of')
 
-function inArray (value, arr) {
-  if (!arr || kindOf(arr) !== 'array') return false
+const inArray = (value, arr) => (
+  !arr || kindOf(arr) !== 'array'
+  ? false
+  : arr.indexOf(value) > -1
+)
 
-  return arr.indexOf(value) > -1
-}
+const sortObjectKeys = (obj, compare) => sortKeys(obj, {compare})
 
-function sortObjectKeys (obj, compare) {
-  return sortKeys(obj, {compare})
-}
-
-function sortArray (arr, options) {
-  const compareFunction = options && options.compareFunction
-
+const sortArray = (arr, opts) => {
+  const compareFunction = opts && opts.compareFunction
   return arr.slice().sort(compareFunction)
 }
 
-function sortObject (obj, options) {
-  const compareFunction = options && options.compareFunction
-  var result = sortObjectKeys(obj, compareFunction)
+function sortObject (obj, opts) {
+  const compareFunction = opts && opts.compareFunction
+  const result = sortObjectKeys(obj, compareFunction)
 
   Object.keys(obj).forEach(function (key) {
-    var current = result[key]
-    var type = kindOf(current)
+    const current = result[key]
+    const type = kindOf(current)
 
     if (type === 'object') {
-      if (!options || !inArray(key, options.ignoreObjectAtKeys)) {
-        result[key] = sortObject(current, options)
+      if (!opts || !inArray(key, opts.ignoreObjectAtKeys)) {
+        result[key] = sortObject(current, opts)
       }
       return
     }
 
     if (type === 'array') {
-      if (!options || !inArray(key, options.ignoreArrayAtKeys)) {
-        result[key] = sortArray(current, options)
+      if (!opts || !inArray(key, opts.ignoreArrayAtKeys)) {
+        result[key] = sortArray(current, opts)
       }
     }
   })
@@ -44,11 +41,9 @@ function sortObject (obj, options) {
   return result
 }
 
-function sort (something, opts) {
-  var type = kindOf(something)
-
-  if (sort[type]) return sort[type](something, opts)
-  return something
+const sort = (something, opts) => {
+  const type = kindOf(something)
+  return sort[type] ? sort[type](something, opts) : something
 }
 
 sort.array = sortArray
