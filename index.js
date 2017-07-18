@@ -10,7 +10,7 @@ function inArray (value, arr) {
 }
 
 function sortObjectKeys (obj, compare) {
-  return sortKeys(obj, compare)
+  return sortKeys(obj, {compare})
 }
 
 function sortArray (arr, options) {
