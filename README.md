@@ -1,7 +1,5 @@
 # sort-keys-recursive
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/Kikobeats/sort-keys-recursive.svg)](https://greenkeeper.io/)
-
 ![Last version](https://img.shields.io/github/tag/Kikobeats/sort-keys-recursive.svg?style=flat-square)
 [![Build Status](https://img.shields.io/travis/Kikobeats/sort-keys-recursive/master.svg?style=flat-square)](https://travis-ci.org/Kikobeats/sort-keys-recursive)
 [![Coverage Status](https://img.shields.io/coveralls/Kikobeats/sort-keys-recursive.svg?style=flat-square)](https://coveralls.io/github/Kikobeats/sort-keys-recursive)
