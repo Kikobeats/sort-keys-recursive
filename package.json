@@ -30,8 +30,8 @@
     "stable"
   ],
   "dependencies": {
-    "kind-of": "~6.0.0",
-    "sort-keys": "~3.0.0"
+    "kind-of": "~6.0.2",
+    "sort-keys": "~4.0.0"
   },
   "devDependencies": {
     "ava": "latest",

@@ -5,11 +5,11 @@ const kindOf = require('kind-of')
 
 const inArray = (value, arr) => (
   !arr || kindOf(arr) !== 'array'
-  ? false
-  : arr.indexOf(value) > -1
+    ? false
+    : arr.indexOf(value) > -1
 )
 
-const sortObjectKeys = (obj, compare) => sortKeys(obj, {compare})
+const sortObjectKeys = (obj, compare) => sortKeys(obj, { compare })
 
 const sortArray = (arr, opts) => {
   const compareFunction = opts && opts.compareFunction

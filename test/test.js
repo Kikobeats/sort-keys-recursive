@@ -1,38 +1,42 @@
 'use strict'
 
-var sort = require('..')
-var test = require('ava')
+const sort = require('..')
+const test = require('ava')
 
-test('sort returns non-array/non-object as is', (t) => {
+const desc = (a, b) => {
+  if (a > b) {
+    return -1
+  }
+  if (b > a) {
+    return 1
+  }
+  return 0
+}
+
+test('sort returns non-array/non-object as is', t => {
   const nonSortables = ['foo', null, 34]
 
-  nonSortables.forEach(
-    (nonSortable) => t.deepEqual(sort(nonSortable), nonSortable)
+  nonSortables.forEach(nonSortable =>
+    t.deepEqual(sort(nonSortable), nonSortable)
   )
 })
 
-test('sort array', (t) => {
-  var arr = ['foo', 'bar']
-  t.deepEqual(
-    sort(arr),
-    ['bar', 'foo']
-  )
+test('sort array', t => {
+  const arr = ['foo', 'bar']
+  t.deepEqual(sort(arr), ['bar', 'foo'])
 
-  t.deepEqual(
-    arr,
-    ['foo', 'bar']
-  )
+  t.deepEqual(arr, ['foo', 'bar'])
 })
 
-test('sort object keys', (t) => {
-  t.deepEqual(
-    sort({hello: 'world', foo: 'bar'}),
-    {foo: 'bar', hello: 'world'}
-  )
+test('sort object keys', t => {
+  t.deepEqual(sort({ hello: 'world', foo: 'bar' }), {
+    foo: 'bar',
+    hello: 'world'
+  })
 })
 
-test('sort keys nested ', (t) => {
-  var object = {
+test('sort keys nested ', t => {
+  const object = {
     c: 0,
     a: {
       c: 0,
@@ -42,7 +46,7 @@ test('sort keys nested ', (t) => {
     b: 0
   }
 
-  var sorted = {
+  const sorted = {
     a: {
       a: 0,
       b: 0,
@@ -54,8 +58,8 @@ test('sort keys nested ', (t) => {
   t.deepEqual(sort(object), sorted)
 })
 
-test('sort object', (t) => {
-  var object = {
+test('sort object', t => {
+  const object = {
     c: 0,
     a: {
       c: ['c', 'a', 'b'],
@@ -65,7 +69,7 @@ test('sort object', (t) => {
     b: 0
   }
 
-  var sorted = {
+  const sorted = {
     a: {
       a: 0,
       b: 0,
@@ -77,7 +81,7 @@ test('sort object', (t) => {
   t.deepEqual(sort(object), sorted)
 })
 
-test('sort object > options.compareFunction', (t) => {
+test.only('sort object > options.compareFunction', t => {
   const input = {
     a: {
       a: 0,
@@ -99,7 +103,7 @@ test('sort object > options.compareFunction', (t) => {
   }
 
   const options = {
-    compareFunction: (a, b) => a < b
+    compareFunction: desc
   }
 
   // Sort in reverse alphabetical order (instead of the default alphabetical order).
@@ -112,21 +116,19 @@ test('sort object > options.compareFunction', (t) => {
   t.deepEqual(Object.keys(result.a), Object.keys(expectedResult.a))
 })
 
-test('sort object > options.ignoreObjectAtKeys', (t) => {
+test('sort object > options.ignoreObjectAtKeys', t => {
   const input = {
     a: {
       b: ['a', 'c', 'b'],
       c: {
-        d: [true, {f: 'g'}]
+        d: [true, { f: 'g' }]
       },
       d: 'e'
     }
   }
 
   const options = {
-    ignoreObjectAtKeys: [
-      'c'
-    ]
+    ignoreObjectAtKeys: ['c']
   }
 
   const result = sort(input, options)
@@ -135,7 +137,7 @@ test('sort object > options.ignoreObjectAtKeys', (t) => {
     a: {
       b: ['a', 'b', 'c'],
       c: {
-        d: [true, {f: 'g'}]
+        d: [true, { f: 'g' }]
       },
       d: 'e'
     }
@@ -147,11 +149,11 @@ test('sort object > options.ignoreObjectAtKeys', (t) => {
   t.deepEqual(Object.keys(result.a), Object.keys(expectedResult.a))
 })
 
-test('sort object > options.ignoreArrayAtKeys', (t) => {
+test('sort object > options.ignoreArrayAtKeys', t => {
   const input = {
     a: {
       c: {
-        d: [true, {f: 'g'}]
+        d: [true, { f: 'g' }]
       },
       b: ['a', 'c', 'b'],
       d: 'e'
@@ -159,9 +161,7 @@ test('sort object > options.ignoreArrayAtKeys', (t) => {
   }
 
   const options = {
-    ignoreArrayAtKeys: [
-      'b'
-    ]
+    ignoreArrayAtKeys: ['b']
   }
 
   const result = sort(input, options)
@@ -170,7 +170,7 @@ test('sort object > options.ignoreArrayAtKeys', (t) => {
     a: {
       b: ['a', 'c', 'b'],
       c: {
-        d: [{f: 'g'}, true]
+        d: [{ f: 'g' }, true]
       },
       d: 'e'
     }
