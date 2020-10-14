@@ -1,3 +1,21 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## 2.1.0 (2020-10-14)
+
+
+### Features
+
+* add 'options' support with a new third, optional parameter ([c9a1995](https://github.com/kikobeats/sort-keys-recursive/commit/c9a1995f95fe250ff115b0298040e6a8ee19ed4c))
+
+
+### Bug Fixes
+
+* **package:** update kind-of to version 5.1.0 ([a431902](https://github.com/kikobeats/sort-keys-recursive/commit/a4319021a4e3d06027bc6bb2e86344abffa27137))
+* **package:** update kind-of to version 6.0.0 ([3688a3a](https://github.com/kikobeats/sort-keys-recursive/commit/3688a3a50a0af47c76ca7cf8b99857074459f7e5))
+* **package:** update sort-keys to version 3.0.0 ([497af99](https://github.com/kikobeats/sort-keys-recursive/commit/497af99716dc2b1a41428e39a9afdff62aedb524))
+
 <a name="2.0.1"></a>
 ## 2.0.1 (2017-07-18)
 
@@ -82,6 +100,3 @@
 * 1.0.2 releases ([2fc5ad8](https://github.com/kikobeats/sort-keys-recursive/commit/2fc5ad8))
 * first commit ([41215ef](https://github.com/kikobeats/sort-keys-recursive/commit/41215ef))
 * fixed little issue ([9846d85](https://github.com/kikobeats/sort-keys-recursive/commit/9846d85))
-
-
-
