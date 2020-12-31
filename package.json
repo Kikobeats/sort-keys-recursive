@@ -37,7 +37,7 @@
   ],
   "dependencies": {
     "kind-of": "~6.0.2",
-    "sort-keys": "~4.1.0"
+    "sort-keys": "~4.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
