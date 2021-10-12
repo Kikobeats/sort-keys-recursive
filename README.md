@@ -120,15 +120,15 @@ console.log(output)
 You can pass a custom sort function as <code>compareFunction</code>. This function is passed to Javascript <code>[sort()](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)</code>, that sorts in alphabetical order by default. The custom function should return zero, a negative or positive value:
 
 ```js
-var reverseAlphabeticalSort = function (a, b) {
+const reverseAlphabeticalSort = function (a, b) {
   return a < b
 }
 
-var options = {
+const options = {
   compareFunction: reverseAlphabeticalSort
 }
 
-var object = {
+const object = {
   a: {
     a: 0,
     c: ['c', 'a', 'b'],
@@ -138,7 +138,7 @@ var object = {
   b: 0
 }
 
-var output = sort(object, options)
+const output = sort(object, options)
 
 console.log(output)
 
