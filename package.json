@@ -60,7 +60,8 @@
     "node": ">=4"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "index.d.ts"
   ],
   "scripts": {
     "contributors": "(git-authors-cli && finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
