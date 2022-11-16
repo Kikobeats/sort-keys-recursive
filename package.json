@@ -2,7 +2,7 @@
   "name": "sort-keys-recursive",
   "description": "Sort the keys of an object recursively",
   "homepage": "https://github.com/Kikobeats/sort-keys-recursive",
-  "version": "2.1.7",
+  "version": "2.1.8",
   "main": "./index.js",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",
