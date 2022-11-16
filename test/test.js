@@ -81,7 +81,7 @@ test('sort object', t => {
   t.deepEqual(sort(object), sorted)
 })
 
-test.only('sort object > options.compareFunction', t => {
+test('sort object > options.compareFunction', t => {
   const input = {
     a: {
       a: 0,
